@@ -5,6 +5,7 @@ class PengirimanBarang {
     private String alamatTujuan;
     private double berat;
     private double biayaDasar;
+    private static int jumlahPengirim = 0;
 
     public PengirimanBarang() {
         Scanner input = new Scanner(System.in);
@@ -20,6 +21,8 @@ class PengirimanBarang {
         
         System.out.print("Masukkan biaya dasar pengiriman: Rp ");
         this.biayaDasar = input.nextDouble();
+
+        jumlahPengirim++;
     }
     
     public PengirimanBarang(String namaPengirim, String alamatTujuan, double berat, double biayaDasar) {
@@ -27,6 +30,7 @@ class PengirimanBarang {
         this.alamatTujuan = alamatTujuan;
         this.berat = berat;
         this.biayaDasar = biayaDasar;
+        jumlahPengirim++;
     }
     
     public double hitungOngkir(double diskonPersen) {
@@ -47,6 +51,9 @@ class PengirimanBarang {
     
     public static void displayInfoLogistik() {
         System.out.println("Perusahaan Logistik Speed - Pengiriman Aman dan Secepat Kilat");
+    }
+    public static int getJumlahPengirim() {
+        return jumlahPengirim;
     }
     
     public void displayInfo() {
@@ -82,5 +89,6 @@ public class manajemenbarang {
         System.out.println("Ongkir berdasarkan jarak 70 km: Rp " + pengirimanOverload.hitungOngkir(70));
         System.out.println("Ongkir berdasarkan jarak 35 km: Rp " + pengirimanOverload.hitungOngkir(35));
         
+        System.out.println("\nJumlah Pengirim: " + PengirimanBarang.getJumlahPengirim());
     }
 }
