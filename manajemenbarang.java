@@ -92,3 +92,4 @@ public class manajemenbarang {
         System.out.println("\nJumlah Pengirim: " + PengirimanBarang.getJumlahPengirim());
     }
 }
+
